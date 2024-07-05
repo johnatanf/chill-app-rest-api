@@ -8,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.hasMany(models.Content);
+      this.hasMany(models.Content, {
+        foreignKey: "parental_rating_id", // Specify the foreign key used in Content model
+        onDelete: "CASCADE",
+      });
     }
   }
   ParentalRating.init(
@@ -20,12 +23,13 @@ module.exports = (sequelize, DataTypes) => {
       },
       rating_name: {
         type: DataTypes.STRING,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     {
       sequelize,
       modelName: "ParentalRating",
+      tableName: "parental_rating",
     }
   );
   return ParentalRating;

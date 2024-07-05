@@ -47,10 +47,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    chill_original: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
     premium: {
       type: DataTypes.BOOLEAN,
       allowNull: false
@@ -66,6 +62,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Content',
+    tableName: 'content'
   });
 
   
