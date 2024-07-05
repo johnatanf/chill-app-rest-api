@@ -1,35 +1,133 @@
-const Content = require('../models').Content
-const ParentalRating = require('../models').ParentalRating
+const Content = require("../models").Content;
+const ParentalRating = require("../models").ParentalRating;
 
-const getContents = async (req, res) => {
-  const contents = await Content.findAll({ include: ParentalRating });
-  res.send(contents);
+const getContents = async (req, res, next) => {
+  try {
+    const contents = await Content.findAll({ include: ParentalRating });
+    res.send(contents);
+  } catch (err) {
+    next(err);
+  }
 };
 
-const createContent = async (req, res) => {
-  const content = ["create content"];
-  res.send(content);
+const createContent = async (req, res, next) => {
+  try {
+    const {
+      title,
+      parental_rating_id,
+      content_description,
+      description_image_url,
+      thumbnail_image_url,
+      content_type,
+      chill_original,
+      premium,
+      duration_minutes,
+      release_date,
+    } = req.body;
+
+    const newContent = await Content.create({
+      title,
+      parental_rating_id,
+      content_description,
+      description_image_url,
+      thumbnail_image_url,
+      content_type,
+      chill_original,
+      premium,
+      duration_minutes,
+      release_date,
+    });
+
+    res.send(newContent);
+  } catch (err) {
+    next(err);
+  }
 };
 
-const getContent = async (req, res) => {
-  const id = req.params.id;
-  const content = ["get content", id];
+const getContent = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const content = await Content.findOne({
+      where: { content_id: id },
+      include: ParentalRating,
+    });
 
-  res.send(content);
+    if (content) {
+      res.send(content);
+    } else {
+      return res.status(404).json({ error: `Content ${id} not found` });
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
-const deleteContent = async (req, res) => {
-  const id = req.params.id;
-  const content = ["delete content", id];
+const deleteContent = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const content = await Content.findOne({
+      where: { content_id: id },
+    });
 
-  res.send(content);
+    if (content) {
+      await Content.destroy({ where: { content_id: id } });
+      return res.status(200).json({ message: `delete content id ${id} successful` });
+    } else {
+      return res.status(404).json({ error: `Content ${id} not found` });
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
-const updateContent = async (req, res) => {
-  const id = req.params.id;
-  const content = ["update content", id];
+const updateContent = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const content = await Content.findOne({
+      where: { content_id: id },
+    });
 
-  res.send(content);
+    const {
+      title,
+      parental_rating_id,
+      content_description,
+      description_image_url,
+      thumbnail_image_url,
+      content_type,
+      chill_original,
+      premium,
+      duration_minutes,
+      release_date,
+    } = req.body;
+
+    if (content) {
+      await Content.update(
+        {
+          title,
+          parental_rating_id,
+          content_description,
+          description_image_url,
+          thumbnail_image_url,
+          content_type,
+          chill_original,
+          premium,
+          duration_minutes,
+          release_date,
+        },
+        {
+          where: {
+            content_id: id,
+          },
+        }
+      );
+
+      return res.status(200).json({ message: `update content id ${id} successful` });
+    } else {
+      return res.status(404).json({ error: `Content ${id} not found` });
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
 module.exports = {

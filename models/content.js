@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.hasOne(models.ParentalRating, {
         foreignKey: 'parental_rating_id',
+        sourceKey: 'parental_rating_id',
         onDelete: 'CASCADE'
       })
     }
@@ -22,6 +23,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
+    },
+    parental_rating_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "ParentalRating",
+        key: "parental_rating_id"
+      }
     },
     title: {
       type: DataTypes.STRING,

@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.hasMany(models.Content, {
-        foreignKey: "parental_rating_id", // Specify the foreign key used in Content model
+        foreignKey: "parental_rating_id",
+        sourceKey: "parental_rating_id",
         onDelete: "CASCADE",
       });
     }
