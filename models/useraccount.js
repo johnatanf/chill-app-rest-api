@@ -1,5 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
+const bcrypt = require("bcrypt");
+
 module.exports = (sequelize, DataTypes) => {
   class UserAccount extends Model {
     /**
@@ -38,15 +40,36 @@ module.exports = (sequelize, DataTypes) => {
       },
       password_hash: {
         type: DataTypes.STRING,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     {
       sequelize,
       modelName: "UserAccount",
       tableName: "user_account",
+      hooks: {
+        beforeCreate: async (userAccount) => {
+          try {
+            if (userAccount.password_hash) {
+              const salt = await bcrypt.genSalt(10);
+              const hashedPassword = await bcrypt.hash(
+                userAccount.password_hash,
+                salt
+              );
+              userAccount.password_hash = hashedPassword;
+            }
+          } catch (error) {
+            console.error("Error in beforeCreate hook:", error);
+          }
+        },
+      },
     }
   );
+
+  // Method to compare passwords
+  UserAccount.prototype.validPassword = async function (password) {
+    return await bcrypt.compare(password, this.password_hash);
+  };
 
   return UserAccount;
 };

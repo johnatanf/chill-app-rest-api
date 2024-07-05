@@ -1,9 +1,10 @@
 "use strict";
 
+const { UserAccount } = require('../models');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert(
-      "user_account",
+    await UserAccount.bulkCreate(
       [
         {
           user_account_id: 1,
@@ -26,7 +27,9 @@ module.exports = {
           updatedAt: new Date(),
         },
       ],
-      {}
+      {
+        individualHooks: true
+      }
     );
   },
 
