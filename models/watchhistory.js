@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class ContentGenre extends Model {
+  class WatchHistory extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  ContentGenre.init(
+  WatchHistory.init(
     {
-      content_genre_id: {
+      watch_history_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -29,23 +29,31 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         allowNull: false,
       },
-      genre_id: {
+      user_account_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: "genre",
-          key: "genre_id",
+          model: "user_account",
+          key: "user_account_id",
         },
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
         allowNull: false,
       },
+      progress: {
+        type: DataTypes.DECIMAL(3, 2),
+        allowNull: false,
+        validate: {
+          min: 0,
+          max: 1
+        }
+      },
     },
     {
       sequelize,
-      modelName: "ContentGenre",
-      tableName: "content_genre",
+      modelName: "WatchHistory",
+      tableName: "watch_history",
     }
   );
 
-  return ContentGenre;
+  return WatchHistory;
 };

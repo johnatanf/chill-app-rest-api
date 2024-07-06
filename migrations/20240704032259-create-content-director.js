@@ -13,7 +13,7 @@ module.exports = {
       content_id: {
         type: Sequelize.DataTypes.INTEGER,
         references: {
-          model: "Content",
+          model: "content",
           key: "content_id",
         },
         onUpdate: "CASCADE",
@@ -23,7 +23,7 @@ module.exports = {
       director_id: {
         type: Sequelize.DataTypes.INTEGER,
         references: {
-          model: "Director",
+          model: "director",
           key: "director_id",
         },
         onUpdate: "CASCADE",

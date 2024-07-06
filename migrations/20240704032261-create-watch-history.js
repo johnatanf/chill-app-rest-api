@@ -3,8 +3,8 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.createTable("content_actor", {
-      content_actor_id: {
+    return queryInterface.createTable("watch_history", {
+      watch_history_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -20,15 +20,23 @@ module.exports = {
         onDelete: "CASCADE",
         allowNull: false,
       },
-      actor_id: {
+      user_account_id: {
         type: Sequelize.DataTypes.INTEGER,
         references: {
-          model: "actor",
-          key: "actor_id",
+          model: "user_account",
+          key: "user_account_id",
         },
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
         allowNull: false,
+      },
+      progress: {
+        type: Sequelize.DataTypes.DECIMAL(3, 2),
+        allowNull: false,
+        validate: {
+          min: 0,
+          max: 1,
+        },
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -42,6 +50,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.dropTable("content_actor");
+    return queryInterface.dropTable("watch_history");
   },
 };

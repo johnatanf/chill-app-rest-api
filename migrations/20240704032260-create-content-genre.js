@@ -13,7 +13,7 @@ module.exports = {
       content_id: {
         type: Sequelize.DataTypes.INTEGER,
         references: {
-          model: "Content",
+          model: "content",
           key: "content_id",
         },
         onUpdate: "CASCADE",
@@ -23,7 +23,7 @@ module.exports = {
       genre_id: {
         type: Sequelize.DataTypes.INTEGER,
         references: {
-          model: "Genre",
+          model: "genre",
           key: "genre_id",
         },
         onUpdate: "CASCADE",

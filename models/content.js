@@ -32,6 +32,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "content_id",
         otherKey: "actor_id",
       });
+
+      this.belongsToMany(models.UserAccount, {
+        through: models.WatchHistory,
+        foreignKey: "content_id",
+        otherKey: "user_account_id",
+      });
     }
   }
   Content.init(
@@ -45,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: "ParentalRating",
+          model: "parental_rating",
           key: "parental_rating_id",
         },
       },
