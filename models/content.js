@@ -20,6 +20,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "content_id",
         otherKey: "director_id",
       });
+
+      this.belongsToMany(models.Genre, {
+        through: models.ContentGenre,
+        foreignKey: "content_id",
+        otherKey: "genre_id",
+      });
     }
   }
   Content.init(
