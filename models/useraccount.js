@@ -21,6 +21,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "user_account_id",
         otherKey: "content_id",
       });
+
+      this.belongsToMany(models.Subscription, {
+        through: models.UserAccountSubscription,
+        foreignKey: "user_account_id",
+        otherKey: "subscription_id",
+      });
     }
   }
   UserAccount.init(

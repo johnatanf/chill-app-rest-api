@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsToMany(models.UserAccount, {
+        through: models.UserAccountSubscription,
+        foreignKey: "subscription_id",
+        otherKey: "user_account_id",
+      });
     }
   }
   Subscription.init(
