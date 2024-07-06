@@ -9,6 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      this.belongsToMany(models.Content, {
+        through: models.ContentActor,
+        foreignKey: "actor_id",
+        otherKey: "content_id",
+      });
     }
   }
   Actor.init(

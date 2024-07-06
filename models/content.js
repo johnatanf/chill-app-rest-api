@@ -26,6 +26,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "content_id",
         otherKey: "genre_id",
       });
+
+      this.belongsToMany(models.Actor, {
+        through: models.ContentActor,
+        foreignKey: "content_id",
+        otherKey: "actor_id",
+      });
     }
   }
   Content.init(
