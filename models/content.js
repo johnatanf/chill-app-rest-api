@@ -38,6 +38,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "content_id",
         otherKey: "user_account_id",
       });
+
+      this.belongsToMany(models.UserAccount, {
+        through: models.WatchList,
+        foreignKey: "content_id",
+        otherKey: "user_account_id",
+      });
     }
   }
   Content.init(
