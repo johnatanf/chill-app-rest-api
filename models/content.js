@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Content extends Model {
     /**
@@ -12,68 +10,76 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasOne(models.ParentalRating, {
-        foreignKey: 'parental_rating_id',
-        sourceKey: 'parental_rating_id',
-        onDelete: 'CASCADE'
-      })
+        foreignKey: "parental_rating_id",
+        sourceKey: "parental_rating_id",
+        onDelete: "CASCADE",
+      });
+
+      this.belongsToMany(models.Director, {
+        through: models.ContentDirector,
+        foreignKey: "content_id",
+        otherKey: "director_id",
+      });
     }
   }
-  Content.init({
-    content_id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
+  Content.init(
+    {
+      content_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      parental_rating_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "ParentalRating",
+          key: "parental_rating_id",
+        },
+      },
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      content_description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      description_image_url: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
+      thumbnail_image_url: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
+      content_type: {
+        type: DataTypes.ENUM("Movie", "Series"),
+        allowNull: false,
+      },
+      chill_original: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
+      premium: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
+      duration_minutes: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      release_date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+      },
     },
-    parental_rating_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "ParentalRating",
-        key: "parental_rating_id"
-      }
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    content_description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    description_image_url: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    thumbnail_image_url: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    content_type: {
-      type: DataTypes.ENUM('Movie', 'Series'),
-      allowNull: false
-    },
-    chill_original: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    premium: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    duration_minutes: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    release_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-  }, {
-    sequelize,
-    modelName: 'Content',
-    tableName: 'content'
-  });
+    {
+      sequelize,
+      modelName: "Content",
+      tableName: "content",
+    }
+  );
 
-  
   return Content;
 };
