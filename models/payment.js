@@ -32,6 +32,8 @@ module.exports = (sequelize, DataTypes) => {
           model: "user_account",
           key: "user_account_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       payment_method_id: {
         type: DataTypes.INTEGER,

@@ -16,6 +16,8 @@ module.exports = {
           model: "content",
           key: "content_id",
         },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         allowNull: false,
       },
       actor_id: {
@@ -24,6 +26,8 @@ module.exports = {
           model: "actor",
           key: "actor_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
         allowNull: false,
       },
       createdAt: {

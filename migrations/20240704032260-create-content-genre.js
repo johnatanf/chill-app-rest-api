@@ -16,6 +16,8 @@ module.exports = {
           model: "content",
           key: "content_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
         allowNull: false,
       },
       genre_id: {
@@ -24,6 +26,8 @@ module.exports = {
           model: "genre",
           key: "genre_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
         allowNull: false,
       },
       createdAt: {

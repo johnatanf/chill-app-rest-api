@@ -16,6 +16,8 @@ module.exports = {
           model: "content",
           key: "content_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
         allowNull: false,
       },
       director_id: {
@@ -24,6 +26,8 @@ module.exports = {
           model: "director",
           key: "director_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
         allowNull: false,
       },
       createdAt: {

@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.belongsTo(models.Content, {
-        foreignKey: 'content_id',
-        targetKey: 'content_id',
-      })
+        foreignKey: "content_id",
+        targetKey: "content_id",
+      });
     }
   }
   Rating.init(
@@ -27,7 +27,9 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: "content",
           key: "content_id",
-        }
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       rating_value: {
         type: DataTypes.INTEGER,

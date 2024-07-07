@@ -14,8 +14,10 @@ module.exports = {
         allowNull: false,
         references: {
           model: "content",
-          key: "content_id"
-        }
+          key: "content_id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       season_number: {
         type: Sequelize.DataTypes.INTEGER,

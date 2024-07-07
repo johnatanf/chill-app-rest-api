@@ -16,6 +16,8 @@ module.exports = {
           model: "content",
           key: "content_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       rating_value: {
         type: Sequelize.DataTypes.INTEGER,

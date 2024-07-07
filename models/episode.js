@@ -26,8 +26,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         references: {
           model: "season",
-          key: "season_id"
-        }
+          key: "season_id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       episode_number: {
         type: DataTypes.INTEGER,
@@ -35,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       title: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       release_date: {
         type: DataTypes.DATEONLY,

@@ -32,6 +32,8 @@ module.exports = (sequelize, DataTypes) => {
           model: "content",
           key: "content_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
         allowNull: false,
       },
       genre_id: {
@@ -40,6 +42,8 @@ module.exports = (sequelize, DataTypes) => {
           model: "genre",
           key: "genre_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
         allowNull: false,
       },
     },

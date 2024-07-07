@@ -32,7 +32,9 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: "content",
           key: "content_id"
-        }
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       season_number: {
         type: DataTypes.INTEGER,

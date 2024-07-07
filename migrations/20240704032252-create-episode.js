@@ -16,6 +16,8 @@ module.exports = {
           model: "season",
           key: "season_id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       episode_number: {
         type: Sequelize.DataTypes.INTEGER,
