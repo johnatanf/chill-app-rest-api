@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.Payment, {
+        foreignKey: "payment_method_id",
+        sourceKey: "payment_method_id",
+        onDelete: "CASCADE",
+      });
     }
   }
   PaymentMethod.init(
