@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Subscription, {
+        foreignKey: "subscription_id",
+        onDelete: "CASCADE",
+      });
     }
   }
   SubscriptionFeature.init(
@@ -21,10 +25,10 @@ module.exports = (sequelize, DataTypes) => {
       subscription_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        // references: {
-        //   model: "ParentalRating",
-        //   key: "parental_rating_id"
-        // }
+        references: {
+          model: "subscription",
+          key: "subscription_id"
+        }
       },
       feature_description: {
         type: DataTypes.STRING,

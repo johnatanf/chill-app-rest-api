@@ -10,12 +10,12 @@ module.exports = {
         primaryKey: true,
       },
       subscription_id: {
-        type: Sequelize.DataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        // references: {
-        //   model: "ParentalRating",
-        //   key: "parental_rating_id"
-        // }
+        references: {
+          model: "subscription",
+          key: "subscription_id",
+        },
       },
       feature_description: {
         type: Sequelize.DataTypes.STRING,
