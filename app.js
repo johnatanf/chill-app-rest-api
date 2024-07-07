@@ -15,7 +15,8 @@ const errorHandler = (err, req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.use("/contents", contentsRoutes);
+app.use("/contents", contentsRoutes)
+app.use("/parentalratings", parentalRatingsRoutes);
 app.use("/watchlists", watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
