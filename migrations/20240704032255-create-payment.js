@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true,
       },
       user_account_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: "user_account",
@@ -18,7 +18,7 @@ module.exports = {
         },
       },
       payment_method_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: "payment_method",

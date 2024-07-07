@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true,
       },
       subscription_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: "subscription",
