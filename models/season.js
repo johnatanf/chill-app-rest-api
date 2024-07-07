@@ -9,6 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Content, {
+        foreignKey: "content_id",
+        onDelete: "CASCADE",
+      });
+
+      this.hasMany(models.Episode, {
+        foreignKey: "season_id",
+        sourceKey: "season_id",
+        onDelete: "CASCADE",
+      });
     }
   }
   Season.init(
