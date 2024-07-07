@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Season, {
+        foreignKey: "season_id",
+        onDelete: "CASCADE",
+      });
     }
   }
   Episode.init(
@@ -21,10 +25,10 @@ module.exports = (sequelize, DataTypes) => {
       season_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        // references: {
-        //   model: "ParentalRating",
-        //   key: "parental_rating_id"
-        // }
+        references: {
+          model: "season",
+          key: "season_id"
+        }
       },
       episode_number: {
         type: DataTypes.INTEGER,

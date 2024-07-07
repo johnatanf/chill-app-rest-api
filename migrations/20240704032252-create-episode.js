@@ -10,12 +10,12 @@ module.exports = {
         primaryKey: true,
       },
       season_id: {
-        type: Sequelize.DataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        // references: {
-        //   model: "ParentalRating",
-        //   key: "parental_rating_id"
-        // }
+        references: {
+          model: "season",
+          key: "season_id",
+        },
       },
       episode_number: {
         type: Sequelize.DataTypes.INTEGER,
