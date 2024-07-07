@@ -16,8 +16,6 @@ module.exports = {
           model: "content",
           key: "content_id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
         allowNull: false,
       },
       user_account_id: {
@@ -26,8 +24,6 @@ module.exports = {
           model: "user_account",
           key: "user_account_id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
         allowNull: false,
       },
       date_added: {

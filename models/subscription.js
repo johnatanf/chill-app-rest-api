@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.SubscriptionFeature, {
         foreignKey: "subscription_id",
         sourceKey: "subscription_id",
-        onDelete: "CASCADE",
       });
 
       this.belongsToMany(models.UserAccount, {

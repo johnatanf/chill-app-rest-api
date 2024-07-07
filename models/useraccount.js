@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Payment, {
         foreignKey: "user_account_id",
         sourceKey: "user_account_id",
-        onDelete: "CASCADE",
       });
 
       this.belongsToMany(models.Content, {

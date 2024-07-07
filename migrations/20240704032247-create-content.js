@@ -13,11 +13,9 @@ module.exports = {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'parental_rating',
-          key: 'parental_rating_id'
+          model: "parental_rating",
+          key: "parental_rating_id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
       },
       title: {
         type: Sequelize.DataTypes.STRING,

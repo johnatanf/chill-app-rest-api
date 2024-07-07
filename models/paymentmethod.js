@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Payment, {
         foreignKey: "payment_method_id",
         sourceKey: "payment_method_id",
-        onDelete: "CASCADE",
       });
     }
   }

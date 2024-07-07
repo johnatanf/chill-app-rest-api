@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Content, {
         foreignKey: "parental_rating_id",
         sourceKey: "parental_rating_id",
-        onDelete: "CASCADE",
       });
     }
   }

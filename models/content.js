@@ -11,19 +11,16 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.ParentalRating, {
         foreignKey: "parental_rating_id",
-        onDelete: "CASCADE",
       });
 
       this.hasMany(models.Season, {
         foreignKey: "content_id",
         sourceKey: "content_id",
-        onDelete: "CASCADE",
       });
 
       this.hasMany(models.Rating, {
         foreignKey: "content_id",
         sourceKey: "content_id",
-        onDelete: "CASCADE",
       });
 
       this.belongsToMany(models.Director, {

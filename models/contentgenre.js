@@ -11,12 +11,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Content, {
         foreignKey: "content_id",
-        onDelete: "CASCADE",
       });
 
       this.belongsTo(models.Genre, {
         foreignKey: "genre_id",
-        onDelete: "CASCADE",
       });
     }
   }
@@ -34,8 +32,6 @@ module.exports = (sequelize, DataTypes) => {
           model: "content",
           key: "content_id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
         allowNull: false,
       },
       genre_id: {
@@ -44,8 +40,6 @@ module.exports = (sequelize, DataTypes) => {
           model: "genre",
           key: "genre_id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
         allowNull: false,
       },
     },

@@ -16,8 +16,6 @@ module.exports = {
           model: "user_account",
           key: "user_account_id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
         allowNull: false,
       },
       subscription_id: {
@@ -26,8 +24,6 @@ module.exports = {
           model: "subscription",
           key: "subscription_id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
         allowNull: false,
       },
       start_date: {

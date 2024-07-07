@@ -11,12 +11,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.UserAccount, {
         foreignKey: "user_account_id",
-        onDelete: "CASCADE",
       });
 
       this.belongsTo(models.Subscription, {
         foreignKey: "subscription_id",
-        onDelete: "CASCADE",
       });
     }
   }
@@ -34,8 +32,6 @@ module.exports = (sequelize, DataTypes) => {
           model: "user_account",
           key: "user_account_id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
         allowNull: false,
       },
       subscription_id: {
@@ -44,8 +40,6 @@ module.exports = (sequelize, DataTypes) => {
           model: "subscription",
           key: "subscription_id",
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
         allowNull: false,
       },
       start_date: {

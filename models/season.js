@@ -11,13 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Content, {
         foreignKey: "content_id",
-        onDelete: "CASCADE",
       });
 
       this.hasMany(models.Episode, {
         foreignKey: "season_id",
         sourceKey: "season_id",
-        onDelete: "CASCADE",
       });
     }
   }

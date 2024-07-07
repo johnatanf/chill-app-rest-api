@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.Content, {
         foreignKey: 'content_id',
-        targetKey: 'content_id'
+        targetKey: 'content_id',
       })
     }
   }
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         references: {
           model: "content",
-          key: "content_id"
+          key: "content_id",
         }
       },
       rating_value: {

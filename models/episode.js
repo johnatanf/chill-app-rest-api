@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Season, {
         foreignKey: "season_id",
-        onDelete: "CASCADE",
       });
     }
   }
