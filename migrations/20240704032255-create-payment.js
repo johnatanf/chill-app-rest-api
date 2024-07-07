@@ -10,20 +10,20 @@ module.exports = {
         primaryKey: true,
       },
       user_account_id: {
-        type: Sequelize.DataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        // references: {
-        //   model: "ParentalRating",
-        //   key: "parental_rating_id"
-        // }
+        references: {
+          model: "user_account",
+          key: "user_account_id",
+        },
       },
       payment_method_id: {
-        type: Sequelize.DataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        // references: {
-        //   model: "ParentalRating",
-        //   key: "parental_rating_id"
-        // }
+        references: {
+          model: "payment_method",
+          key: "payment_method_id",
+        },
       },
       amount: {
         type: Sequelize.DataTypes.DECIMAL(10, 2),
