@@ -8,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.belongsTo(models.Content, {
+        foreignKey: 'content_id',
+        targetKey: 'content_id'
+      })
     }
   }
   Rating.init(
@@ -21,10 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       content_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        // references: {
-        //   model: "ParentalRating",
-        //   key: "parental_rating_id"
-        // }
+        references: {
+          model: "content",
+          key: "content_id"
+        }
       },
       rating_value: {
         type: DataTypes.INTEGER,
