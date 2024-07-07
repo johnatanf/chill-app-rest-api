@@ -9,6 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Content, {
+        foreignKey: "content_id",
+        onDelete: "CASCADE",
+      });
+
+      this.belongsTo(models.Genre, {
+        foreignKey: "genre_id",
+        onDelete: "CASCADE",
+      });
     }
   }
   ContentGenre.init(
