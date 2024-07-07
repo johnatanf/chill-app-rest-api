@@ -10,6 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      this.hasMany(models.Payment, {
+        foreignKey: "user_account_id",
+        sourceKey: "user_account_id",
+        onDelete: "CASCADE",
+      });
+
       this.belongsToMany(models.Content, {
         through: models.WatchHistory,
         foreignKey: "user_account_id",
