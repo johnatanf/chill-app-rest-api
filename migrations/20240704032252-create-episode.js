@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true,
       },
       season_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: "season",
