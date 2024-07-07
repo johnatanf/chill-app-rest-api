@@ -4,8 +4,17 @@ const UserAccount = require("../models").UserAccount;
 
 const getWatchLists = async (req, res, next) => {
   try {
-    const watchLists = await WatchList.findAll({
-      include: [Content, UserAccount]
+    let watchLists;
+    const queryFilter = {};
+    const userAccountId = req.query.user_account_id;
+    const contentId = req.query.content_id;
+
+    if (userAccountId) queryFilter.user_account_id = userAccountId;
+    if (contentId) queryFilter.content_id = contentId;
+
+    watchLists = await WatchList.findAll({
+      include: [Content, UserAccount],
+      where: queryFilter,
     });
     res.send(watchLists);
   } catch (err) {
@@ -15,33 +24,15 @@ const getWatchLists = async (req, res, next) => {
 
 const createWatchList = async (req, res, next) => {
   try {
-    const {
-      title,
-      parental_rating_id,
-      content_description,
-      description_image_url,
-      thumbnail_image_url,
-      content_type,
-      chill_original,
-      premium,
-      duration_minutes,
-      release_date,
-    } = req.body;
+    const { content_id, user_account_id, date_added } = req.body;
 
-    const newContent = await Content.create({
-      title,
-      parental_rating_id,
-      content_description,
-      description_image_url,
-      thumbnail_image_url,
-      content_type,
-      chill_original,
-      premium,
-      duration_minutes,
-      release_date,
+    const newWatchList = await WatchList.create({
+      content_id,
+      user_account_id,
+      date_added,
     });
 
-    res.send(newContent);
+    res.send(newWatchList);
   } catch (err) {
     next(err);
   }
@@ -50,15 +41,15 @@ const createWatchList = async (req, res, next) => {
 const getWatchList = async (req, res, next) => {
   try {
     const id = req.params.id;
-    const content = await Content.findOne({
-      where: { content_id: id },
-      include: ParentalRating,
+    const watchList = await WatchList.findOne({
+      where: { watch_list_id: id },
+      include: [Content, UserAccount],
     });
 
-    if (content) {
-      res.send(content);
+    if (watchList) {
+      res.send(watchList);
     } else {
-      return res.status(404).json({ error: `Content ${id} not found` });
+      return res.status(404).json({ error: `WatchList ${id} not found` });
     }
   } catch (err) {
     next(err);
@@ -68,17 +59,17 @@ const getWatchList = async (req, res, next) => {
 const deleteWatchList = async (req, res, next) => {
   try {
     const id = req.params.id;
-    const content = await Content.findOne({
-      where: { content_id: id },
+    const watchList = await WatchList.findOne({
+      where: { watch_list_id: id },
     });
 
-    if (content) {
-      await Content.destroy({ where: { content_id: id } });
+    if (watchList) {
+      await WatchList.destroy({ where: { watch_list_id: id } });
       return res
         .status(200)
-        .json({ message: `delete content id ${id} successful` });
+        .json({ message: `delete watch list id ${id} successful` });
     } else {
-      return res.status(404).json({ error: `Content ${id} not found` });
+      return res.status(404).json({ error: `Watch list ${id} not found` });
     }
   } catch (err) {
     next(err);
@@ -88,49 +79,31 @@ const deleteWatchList = async (req, res, next) => {
 const updateWatchList = async (req, res, next) => {
   try {
     const id = req.params.id;
-    const content = await Content.findOne({
-      where: { content_id: id },
+    const watchList = await WatchList.findOne({
+      where: { watch_list_id: id },
     });
 
-    const {
-      title,
-      parental_rating_id,
-      content_description,
-      description_image_url,
-      thumbnail_image_url,
-      content_type,
-      chill_original,
-      premium,
-      duration_minutes,
-      release_date,
-    } = req.body;
+    const { content_id, user_account_id, date_added } = req.body;
 
-    if (content) {
-      await Content.update(
+    if (watchList) {
+      await WatchList.update(
         {
-          title,
-          parental_rating_id,
-          content_description,
-          description_image_url,
-          thumbnail_image_url,
-          content_type,
-          chill_original,
-          premium,
-          duration_minutes,
-          release_date,
+          content_id,
+          user_account_id,
+          date_added,
         },
         {
           where: {
-            content_id: id,
+            watch_list_id: id,
           },
         }
       );
 
       return res
         .status(200)
-        .json({ message: `update content id ${id} successful` });
+        .json({ message: `update watch list id ${id} successful` });
     } else {
-      return res.status(404).json({ error: `Content ${id} not found` });
+      return res.status(404).json({ error: `Watch list ${id} not found` });
     }
   } catch (err) {
     next(err);
@@ -138,9 +111,9 @@ const updateWatchList = async (req, res, next) => {
 };
 
 module.exports = {
+  getWatchList,
   getWatchLists,
   createWatchList,
-  getWatchList,
   deleteWatchList,
   updateWatchList,
 };
