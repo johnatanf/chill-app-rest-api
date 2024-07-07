@@ -1,9 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const contentsRoutes = require("./routes/contents.js");
+const parentalRatingsRoutes = require("./routes/parentalratings.js");
+const actorsRoutes = require("./routes/actors.js");
 const watchListRoutes = require("./routes/watchlists.js");
 const watchHistoriesRoutes = require("./routes/watchhistories.js");
-const parentalRatingsRoutes = require("./routes/parentalratings.js");
 
 const app = express();
 const PORT = 5000;
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 
 app.use("/contents", contentsRoutes)
 app.use("/parentalratings", parentalRatingsRoutes);
+app.use("/actors", actorsRoutes);
 app.use("/watchlists", watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
