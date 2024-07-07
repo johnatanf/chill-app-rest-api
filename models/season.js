@@ -31,10 +31,10 @@ module.exports = (sequelize, DataTypes) => {
       content_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        // references: {
-        //   model: "ParentalRating",
-        //   key: "parental_rating_id"
-        // }
+        references: {
+          model: "content",
+          key: "content_id"
+        }
       },
       season_number: {
         type: DataTypes.INTEGER,
