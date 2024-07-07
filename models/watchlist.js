@@ -9,6 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.UserAccount, {
+        foreignKey: "user_account_id",
+        onDelete: "CASCADE",
+      });
+
+      this.belongsTo(models.Content, {
+        foreignKey: "content_id",
+        onDelete: "CASCADE",
+      });
     }
   }
   WatchList.init(
