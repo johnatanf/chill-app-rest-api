@@ -9,9 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasOne(models.ParentalRating, {
+      this.belongsTo(models.ParentalRating, {
         foreignKey: "parental_rating_id",
-        sourceKey: "parental_rating_id",
         onDelete: "CASCADE",
       });
 
