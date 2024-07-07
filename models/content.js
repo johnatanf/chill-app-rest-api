@@ -15,6 +15,18 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
       });
 
+      this.hasMany(models.Season, {
+        foreignKey: "content_id",
+        sourceKey: "content_id",
+        onDelete: "CASCADE",
+      });
+
+      this.hasMany(models.Rating, {
+        foreignKey: "content_id",
+        sourceKey: "content_id",
+        onDelete: "CASCADE",
+      });
+
       this.belongsToMany(models.Director, {
         through: models.ContentDirector,
         foreignKey: "content_id",
