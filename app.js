@@ -11,6 +11,7 @@ const ratingsRoutes = require("./routes/ratings.js");
 const userAccountsRoutes = require("./routes/useraccounts.js");
 const paymentsRoutes = require("./routes/payments.js");
 const paymentMethodsRoutes = require("./routes/paymentmethods.js");
+const subscriptionsRoutes = require("./routes/subscriptions.js");
 const watchListRoutes = require("./routes/watchlists.js");
 const watchHistoriesRoutes = require("./routes/watchhistories.js");
 
@@ -18,7 +19,8 @@ const app = express();
 const PORT = 5000;
 
 const errorHandler = (err, req, res, next) => {
-  if (err.parent.errno === 1451) {
+  console.error(err.stack)
+  if (err.parent && err.parent.errno === 1451) {
     res.status(400).json({ error: err.parent.sqlMessage });
   } else if (err.errors && err.errors[0]) {
     res.status(400).json({ error: err.errors[0].message });
@@ -40,6 +42,7 @@ app.use("/ratings", ratingsRoutes);
 app.use("/useraccounts", userAccountsRoutes);
 app.use("/payments", paymentsRoutes);
 app.use("/paymentmethods", paymentMethodsRoutes);
+app.use("/subscriptions", subscriptionsRoutes);
 app.use("/watchlists", watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
