@@ -15,12 +15,13 @@ const subscriptionsRoutes = require("./routes/subscriptions.js");
 const subscriptionFeaturesRoutes = require("./routes/subscriptionfeatures.js");
 const watchListRoutes = require("./routes/watchlists.js");
 const watchHistoriesRoutes = require("./routes/watchhistories.js");
+const contentDirectorRoutes = require("./routes/contentdirector.js");
 
 const app = express();
 const PORT = 5000;
 
 const errorHandler = (err, req, res, next) => {
-  console.error(err.stack)
+  console.error(err.stack);
   if (err.parent && err.parent.errno === 1451) {
     res.status(400).json({ error: err.parent.sqlMessage });
   } else if (err.errors && err.errors[0]) {
@@ -47,6 +48,7 @@ app.use("/subscriptions", subscriptionsRoutes);
 app.use("/subscriptionfeatures", subscriptionFeaturesRoutes);
 app.use("/watchlists", watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
+app.use("/contentdirector", contentDirectorRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
 app.all("*", (req, res) => res.send("This route does not exist."));
 
