@@ -4,6 +4,7 @@ const contentsRoutes = require("./routes/contents.js");
 const parentalRatingsRoutes = require("./routes/parentalratings.js");
 const actorsRoutes = require("./routes/actors.js");
 const genresRoutes = require("./routes/genres.js");
+const directorsRoutes = require("./routes/directors.js");
 const watchListRoutes = require("./routes/watchlists.js");
 const watchHistoriesRoutes = require("./routes/watchhistories.js");
 
@@ -21,6 +22,7 @@ app.use("/contents", contentsRoutes)
 app.use("/parentalratings", parentalRatingsRoutes);
 app.use("/actors", actorsRoutes);
 app.use("/genres", genresRoutes);
+app.use("/directors", directorsRoutes);
 app.use("/watchlists", watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
