@@ -17,6 +17,7 @@ const watchListRoutes = require("./routes/watchlists.js");
 const watchHistoriesRoutes = require("./routes/watchhistories.js");
 const contentDirectorRoutes = require("./routes/contentdirector.js");
 const contentGenreRoutes = require("./routes/contentgenre.js");
+const contentActorRoutes = require("./routes/contentactor.js");
 
 const app = express();
 const PORT = 5000;
@@ -51,6 +52,7 @@ app.use("/watchlists", watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
 app.use("/contentdirector", contentDirectorRoutes);
 app.use("/contentgenre", contentGenreRoutes);
+app.use("/contentactor", contentActorRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
 app.all("*", (req, res) => res.send("This route does not exist."));
 
