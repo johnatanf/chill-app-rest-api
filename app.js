@@ -12,6 +12,7 @@ const userAccountsRoutes = require("./routes/useraccounts.js");
 const paymentsRoutes = require("./routes/payments.js");
 const paymentMethodsRoutes = require("./routes/paymentmethods.js");
 const subscriptionsRoutes = require("./routes/subscriptions.js");
+const subscriptionFeaturesRoutes = require("./routes/subscriptionfeatures.js");
 const watchListRoutes = require("./routes/watchlists.js");
 const watchHistoriesRoutes = require("./routes/watchhistories.js");
 
@@ -43,6 +44,7 @@ app.use("/useraccounts", userAccountsRoutes);
 app.use("/payments", paymentsRoutes);
 app.use("/paymentmethods", paymentMethodsRoutes);
 app.use("/subscriptions", subscriptionsRoutes);
+app.use("/subscriptionfeatures", subscriptionFeaturesRoutes);
 app.use("/watchlists", watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
