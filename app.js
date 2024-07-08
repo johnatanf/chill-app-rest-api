@@ -10,6 +10,7 @@ const episodesRoutes = require("./routes/episodes.js");
 const ratingsRoutes = require("./routes/ratings.js");
 const userAccountsRoutes = require("./routes/useraccounts.js");
 const paymentsRoutes = require("./routes/payments.js");
+const paymentMethodsRoutes = require("./routes/paymentmethods.js");
 const watchListRoutes = require("./routes/watchlists.js");
 const watchHistoriesRoutes = require("./routes/watchhistories.js");
 
@@ -17,8 +18,9 @@ const app = express();
 const PORT = 5000;
 
 const errorHandler = (err, req, res, next) => {
-  console.error(err.stack);
-  if (err.errors && err.errors[0]) {
+  if (err.parent.errno === 1451) {
+    res.status(400).json({ error: err.parent.sqlMessage });
+  } else if (err.errors && err.errors[0]) {
     res.status(400).json({ error: err.errors[0].message });
   } else {
     res.status(500).json({ error: "Internal Server Error" });
@@ -37,6 +39,7 @@ app.use("/episodes", episodesRoutes);
 app.use("/ratings", ratingsRoutes);
 app.use("/useraccounts", userAccountsRoutes);
 app.use("/payments", paymentsRoutes);
+app.use("/paymentmethods", paymentMethodsRoutes);
 app.use("/watchlists", watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
