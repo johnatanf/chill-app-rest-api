@@ -8,6 +8,7 @@ const directorsRoutes = require("./routes/directors.js");
 const seasonsRoutes = require("./routes/seasons.js");
 const episodesRoutes = require("./routes/episodes.js");
 const ratingsRoutes = require("./routes/ratings.js");
+const userAccountsRoutes = require("./routes/useraccounts.js");
 const watchListRoutes = require("./routes/watchlists.js");
 const watchHistoriesRoutes = require("./routes/watchhistories.js");
 
@@ -16,12 +17,15 @@ const PORT = 5000;
 
 const errorHandler = (err, req, res, next) => {
   console.error(err.stack);
+  if (err.parent.sqlMessage) {
+    res.status(400).json({ error: err.parent.sqlMessage });
+  }
   res.status(500).json({ error: "Internal Server Error" });
 };
 
 app.use(bodyParser.json());
 
-app.use("/contents", contentsRoutes)
+app.use("/contents", contentsRoutes);
 app.use("/parentalratings", parentalRatingsRoutes);
 app.use("/actors", actorsRoutes);
 app.use("/genres", genresRoutes);
@@ -29,6 +33,7 @@ app.use("/directors", directorsRoutes);
 app.use("/seasons", seasonsRoutes);
 app.use("/episodes", episodesRoutes);
 app.use("/ratings", ratingsRoutes);
+app.use("/useraccounts", userAccountsRoutes);
 app.use("/watchlists", watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
