@@ -24,12 +24,11 @@ const getContentDirectors = async (req, res, next) => {
 
 const createContentDirector = async (req, res, next) => {
   try {
-    const { content_id, director_id, date_added } = req.body;
+    const { content_id, director_id } = req.body;
 
     const newContentDirector = await ContentDirector.create({
       content_id,
       director_id,
-      date_added,
     });
 
     res.send(newContentDirector);
@@ -69,7 +68,9 @@ const deleteContentDirector = async (req, res, next) => {
         .status(200)
         .json({ message: `delete content director id ${id} successful` });
     } else {
-      return res.status(404).json({ error: `Content director ${id} not found` });
+      return res
+        .status(404)
+        .json({ error: `Content director ${id} not found` });
     }
   } catch (err) {
     next(err);
@@ -83,14 +84,13 @@ const updateContentDirector = async (req, res, next) => {
       where: { content_director_id: id },
     });
 
-    const { content_id, director_id, date_added } = req.body;
+    const { content_id, director_id } = req.body;
 
     if (contentDirector) {
       await ContentDirector.update(
         {
           content_id,
           director_id,
-          date_added,
         },
         {
           where: {
@@ -103,7 +103,9 @@ const updateContentDirector = async (req, res, next) => {
         .status(200)
         .json({ message: `update content director id ${id} successful` });
     } else {
-      return res.status(404).json({ error: `Content director ${id} not found` });
+      return res
+        .status(404)
+        .json({ error: `Content director ${id} not found` });
     }
   } catch (err) {
     next(err);
