@@ -28,13 +28,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /contents     | GET    | list all Contents                 |
-| /contents/:id | GET    | list one Content based on id      |
-| /contents/:id | PATCH  | edit one Content data based on id |
-| /contents/:id | DELETE | delete one Content based on id    |
-| /contents     | POST   | create new Content                |
+| Endpoint        | Method | Description                       |
+| --------------- | ------ | --------------------------------- |
+| `/contents`     | GET    | list all Contents                 |
+| `/contents/:id` | GET    | list one Content based on id      |
+| `/contents/:id` | PATCH  | edit one Content data based on id |
+| `/contents/:id` | DELETE | delete one Content based on id    |
+| `/contents`     | POST   | create new Content                |
 
 #### Fields
 
@@ -55,13 +55,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint          | Method | Description                           |
-| ----------------- | ------ | ------------------------------------- |
-| /useraccounts     | GET    | list all UserAccounts                 |
-| /useraccounts/:id | GET    | list one UserAccount based on id      |
-| /useraccounts/:id | PATCH  | edit one UserAccount data based on id |
-| /useraccounts/:id | DELETE | delete one UserAccount based on id    |
-| /useraccounts     | POST   | create new UserAccount                |
+| Endpoint            | Method | Description                           |
+| ------------------- | ------ | ------------------------------------- |
+| `/useraccounts`     | GET    | list all UserAccounts                 |
+| `/useraccounts/:id` | GET    | list one UserAccount based on id      |
+| `/useraccounts/:id` | PATCH  | edit one UserAccount data based on id |
+| `/useraccounts/:id` | DELETE | delete one UserAccount based on id    |
+| `/useraccounts`     | POST   | create new UserAccount                |
 
 
 #### Fields
@@ -78,13 +78,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /actors     | GET    | list all Actors                 |
-| /actors/:id | GET    | list one Actor based on id      |
-| /actors/:id | PATCH  | edit one Actor data based on id |
-| /actors/:id | DELETE | delete one Actor based on id    |
-| /actors     | POST   | create new Actor                |
+| Endpoint      | Method | Description                     |
+| ------------- | ------ | ------------------------------- |
+| `/actors`     | GET    | list all Actors                 |
+| `/actors/:id` | GET    | list one Actor based on id      |
+| `/actors/:id` | PATCH  | edit one Actor data based on id |
+| `/actors/:id` | DELETE | delete one Actor based on id    |
+| `/actors`     | POST   | create new Actor                |
 
 #### Fields
 
@@ -97,13 +97,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /directors     | GET    | list all Directors                 |
-| /directors/:id | GET    | list one Director based on id      |
-| /directors/:id | PATCH  | edit one Director data based on id |
-| /directors/:id | DELETE | delete one Director based on id    |
-| /directors     | POST   | create new Director                |
+| Endpoint         | Method | Description                        |
+| ---------------- | ------ | ---------------------------------- |
+| `/directors`     | GET    | list all Directors                 |
+| `/directors/:id` | GET    | list one Director based on id      |
+| `/directors/:id` | PATCH  | edit one Director data based on id |
+| `/directors/:id` | DELETE | delete one Director based on id    |
+| `/directors`     | POST   | create new Director                |
 
 #### Fields
 
@@ -115,13 +115,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /episodes     | GET    | list all Episodes                 |
-| /episodes/:id | GET    | list one Episode based on id      |
-| /episodes/:id | PATCH  | edit one Episode data based on id |
-| /episodes/:id | DELETE | delete one Episode based on id    |
-| /episodes     | POST   | create new Episode                |
+| Endpoint        | Method | Description                       |
+| --------------- | ------ | --------------------------------- |
+| `/episodes`     | GET    | list all Episodes                 |
+| `/episodes/:id` | GET    | list one Episode based on id      |
+| `/episodes/:id` | PATCH  | edit one Episode data based on id |
+| `/episodes/:id` | DELETE | delete one Episode based on id    |
+| `/episodes`     | POST   | create new Episode                |
 
 #### Fields
 
@@ -138,13 +138,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint    | Method | Description                     |
-| ----------- | ------ | ------------------------------- |
-| /genres     | GET    | list all Genres                 |
-| /genres/:id | GET    | list one Genre based on id      |
-| /genres/:id | PATCH  | edit one Genre data based on id |
-| /genres/:id | DELETE | delete one Genre based on id    |
-| /genres     | POST   | create new Genre                |
+| Endpoint      | Method | Description                     |
+| ------------- | ------ | ------------------------------- |
+| `/genres`     | GET    | list all Genres                 |
+| `/genres/:id` | GET    | list one Genre based on id      |
+| `/genres/:id` | PATCH  | edit one Genre data based on id |
+| `/genres/:id` | DELETE | delete one Genre based on id    |
+| `/genres`     | POST   | create new Genre                |
 
 #### Fields
 
@@ -156,13 +156,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /parentalratings     | GET    | list all ParentalRatings                 |
-| /parentalratings/:id | GET    | list one ParentalRating based on id      |
-| /parentalratings/:id | PATCH  | edit one ParentalRating data based on id |
-| /parentalratings/:id | DELETE | delete one ParentalRating based on id    |
-| /parentalratings     | POST   | create new ParentalRating                |
+| Endpoint               | Method | Description                              |
+| ---------------------- | ------ | ---------------------------------------- |
+| `/parentalratings`     | GET    | list all ParentalRatings                 |
+| `/parentalratings/:id` | GET    | list one ParentalRating based on id      |
+| `/parentalratings/:id` | PATCH  | edit one ParentalRating data based on id |
+| `/parentalratings/:id` | DELETE | delete one ParentalRating based on id    |
+| `/parentalratings`     | POST   | create new ParentalRating                |
 
 #### Fields
 
@@ -174,13 +174,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /payments     | GET    | list all Payments                 |
-| /payments/:id | GET    | list one Payment based on id      |
-| /payments/:id | PATCH  | edit one Payment data based on id |
-| /payments/:id | DELETE | delete one Payment based on id    |
-| /payments     | POST   | create new Payment                |
+| Endpoint        | Method | Description                       |
+| --------------- | ------ | --------------------------------- |
+| `/payments`     | GET    | list all Payments                 |
+| `/payments/:id` | GET    | list one Payment based on id      |
+| `/payments/:id` | PATCH  | edit one Payment data based on id |
+| `/payments/:id` | DELETE | delete one Payment based on id    |
+| `/payments`     | POST   | create new Payment                |
 
 #### Fields
 
@@ -198,13 +198,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /paymentmethods     | GET    | list all PaymentMethods                 |
-| /paymentmethods/:id | GET    | list one PaymentMethod based on id      |
-| /paymentmethods/:id | PATCH  | edit one PaymentMethod data based on id |
-| /paymentmethods/:id | DELETE | delete one PaymentMethod based on id    |
-| /paymentmethods     | POST   | create new PaymentMethod                |
+| Endpoint              | Method | Description                             |
+| --------------------- | ------ | --------------------------------------- |
+| `/paymentmethods`     | GET    | list all PaymentMethods                 |
+| `/paymentmethods/:id` | GET    | list one PaymentMethod based on id      |
+| `/paymentmethods/:id` | PATCH  | edit one PaymentMethod data based on id |
+| `/paymentmethods/:id` | DELETE | delete one PaymentMethod based on id    |
+| `/paymentmethods`     | POST   | create new PaymentMethod                |
 
 #### Fields
 
@@ -217,13 +217,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /ratings     | GET    | list all Ratings                 |
-| /ratings/:id | GET    | list one Rating based on id      |
-| /ratings/:id | PATCH  | edit one Rating data based on id |
-| /ratings/:id | DELETE | delete one Rating based on id    |
-| /ratings     | POST   | create new Rating                |
+| Endpoint       | Method | Description                      |
+| -------------- | ------ | -------------------------------- |
+| `/ratings`     | GET    | list all Ratings                 |
+| `/ratings/:id` | GET    | list one Rating based on id      |
+| `/ratings/:id` | PATCH  | edit one Rating data based on id |
+| `/ratings/:id` | DELETE | delete one Rating based on id    |
+| `/ratings`     | POST   | create new Rating                |
 
 #### Fields
 
@@ -236,13 +236,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /seasons     | GET    | list all Seasons                 |
-| /seasons/:id | GET    | list one Season based on id      |
-| /seasons/:id | PATCH  | edit one Season data based on id |
-| /seasons/:id | DELETE | delete one Season based on id    |
-| /seasons     | POST   | create new Season                |
+| Endpoint       | Method | Description                      |
+| -------------- | ------ | -------------------------------- |
+| `/seasons`     | GET    | list all Seasons                 |
+| `/seasons/:id` | GET    | list one Season based on id      |
+| `/seasons/:id` | PATCH  | edit one Season data based on id |
+| `/seasons/:id` | DELETE | delete one Season based on id    |
+| `/seasons`     | POST   | create new Season                |
 
 #### Fields
 
@@ -257,13 +257,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /subscriptions     | GET    | list all Subscriptions                 |
-| /subscriptions/:id | GET    | list one Subscription based on id      |
-| /subscriptions/:id | PATCH  | edit one Subscription data based on id |
-| /subscriptions/:id | DELETE | delete one Subscription based on id    |
-| /subscriptions     | POST   | create new Subscription                |
+| Endpoint             | Method | Description                            |
+| -------------------- | ------ | -------------------------------------- |
+| `/subscriptions`     | GET    | list all Subscriptions                 |
+| `/subscriptions/:id` | GET    | list one Subscription based on id      |
+| `/subscriptions/:id` | PATCH  | edit one Subscription data based on id |
+| `/subscriptions/:id` | DELETE | delete one Subscription based on id    |
+| `/subscriptions`     | POST   | create new Subscription                |
 
 #### Fields
 
@@ -278,13 +278,13 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint      | Method | Description                       |
-| ------------- | ------ | --------------------------------- |
-| /subscriptionfeatures     | GET    | list all SubscriptionFeatures                 |
-| /subscriptionfeatures/:id | GET    | list one SubscriptionFeature based on id      |
-| /subscriptionfeatures/:id | PATCH  | edit one SubscriptionFeature data based on id |
-| /subscriptionfeatures/:id | DELETE | delete one SubscriptionFeature based on id    |
-| /subscriptionfeatures     | POST   | create new SubscriptionFeature                |
+| Endpoint                    | Method | Description                                   |
+| --------------------------- | ------ | --------------------------------------------- |
+| `/subscriptionfeatures`     | GET    | list all SubscriptionFeatures                 |
+| `/subscriptionfeatures/:id` | GET    | list one SubscriptionFeature based on id      |
+| `/subscriptionfeatures/:id` | PATCH  | edit one SubscriptionFeature data based on id |
+| `/subscriptionfeatures/:id` | DELETE | delete one SubscriptionFeature based on id    |
+| `/subscriptionfeatures`     | POST   | create new SubscriptionFeature                |
 
 #### Fields
 
@@ -297,16 +297,16 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint                                    | Method | Description                                                 |
-| ------------------------------------------- | ------ | ----------------------------------------------------------- |
-| /contentactor                               | GET    | list all ContentActors                                      |
-| /contentactor?content_id:=:id               | GET    | list all ContentActors of content_id :id                    |
-| /contentactor?actor_id:=:id                 | GET    | list all ContentActors of actor_id :id                      |
-| /contentactor?content_id=:id1&actor_id=:id2 | GET    | list all ContentActors of content_id :id1 and actor_id :id2 |
-| /contentactor/:id                           | GET    | list one ContentActor based on id                           |
-| /contentactor/:id                           | PATCH  | edit one ContentActor data based on id                      |
-| /contentactor/:id                           | DELETE | delete one ContentActor based on id                         |
-| /contentactor                               | POST   | create new ContentActor                                     |
+| Endpoint                                      | Method | Description                                                 |
+| --------------------------------------------- | ------ | ----------------------------------------------------------- |
+| `/contentactor`                               | GET    | list all ContentActors                                      |
+| `/contentactor?content_id:=:id`               | GET    | list all ContentActors of content_id :id                    |
+| `/contentactor?actor_id:=:id`                 | GET    | list all ContentActors of actor_id :id                      |
+| `/contentactor?content_id=:id1&actor_id=:id2` | GET    | list all ContentActors of content_id :id1 and actor_id :id2 |
+| `/contentactor/:id`                           | GET    | list one ContentActor based on id                           |
+| `/contentactor/:id`                           | PATCH  | edit one ContentActor data based on id                      |
+| `/contentactor/:id`                           | DELETE | delete one ContentActor based on id                         |
+| `/contentactor`                               | POST   | create new ContentActor                                     |
 
 #### Fields
 
@@ -319,16 +319,16 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint                                    | Method | Description                                                 |
-| ------------------------------------------- | ------ | ----------------------------------------------------------- |
-| /contentdirector                               | GET    | list all ContentDirectors                                      |
-| /contentdirector?content_id:=:id               | GET    | list all ContentDirectors of content_id :id                    |
-| /contentdirector?director_id:=:id                 | GET    | list all ContentDirectors of director_id :id                      |
-| /contentdirector?content_id=:id1&director_id=:id2 | GET    | list all ContentDirectors of content_id :id1 and director_id :id2 |
-| /contentdirector/:id                           | GET    | list one ContentDirector based on id                           |
-| /contentdirector/:id                           | PATCH  | edit one ContentDirector data based on id                      |
-| /contentdirector/:id                           | DELETE | delete one ContentDirector based on id                         |
-| /contentdirector                               | POST   | create new ContentDirector                                     |
+| Endpoint                                            | Method | Description                                                       |
+| --------------------------------------------------- | ------ | ----------------------------------------------------------------- |
+| `/contentdirector`                                  | GET    | list all ContentDirectors                                         |
+| `/contentdirector?content_id:=:id`                  | GET    | list all ContentDirectors of content_id :id                       |
+| `/contentdirector?director_id:=:id`                 | GET    | list all ContentDirectors of director_id :id                      |
+| `/contentdirector?content_id=:id1&director_id=:id2` | GET    | list all ContentDirectors of content_id :id1 and director_id :id2 |
+| `/contentdirector/:id`                              | GET    | list one ContentDirector based on id                              |
+| `/contentdirector/:id`                              | PATCH  | edit one ContentDirector data based on id                         |
+| `/contentdirector/:id`                              | DELETE | delete one ContentDirector based on id                            |
+| `/contentdirector`                                  | POST   | create new ContentDirector                                        |
 
 #### Fields
 
@@ -341,16 +341,16 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint                                    | Method | Description                                                 |
-| ------------------------------------------- | ------ | ----------------------------------------------------------- |
-| /contentgenre                               | GET    | list all ContentGenres                                      |
-| /contentgenre?content_id:=:id               | GET    | list all ContentGenres of content_id :id                    |
-| /contentgenre?genre_id:=:id                 | GET    | list all ContentGenres of genre_id :id                      |
-| /contentgenre?content_id=:id1&genre_id=:id2 | GET    | list all ContentGenres of content_id :id1 and genre_id :id2 |
-| /contentgenre/:id                           | GET    | list one ContentGenre based on id                           |
-| /contentgenre/:id                           | PATCH  | edit one ContentGenre data based on id                      |
-| /contentgenre/:id                           | DELETE | delete one ContentGenre based on id                         |
-| /contentgenre                               | POST   | create new ContentGenre                                     |
+| Endpoint                                      | Method | Description                                                 |
+| --------------------------------------------- | ------ | ----------------------------------------------------------- |
+| `/contentgenre`                               | GET    | list all ContentGenres                                      |
+| `/contentgenre?content_id:=:id`               | GET    | list all ContentGenres of content_id :id                    |
+| `/contentgenre?genre_id:=:id`                 | GET    | list all ContentGenres of genre_id :id                      |
+| `/contentgenre?content_id=:id1&genre_id=:id2` | GET    | list all ContentGenres of content_id :id1 and genre_id :id2 |
+| `/contentgenre/:id`                           | GET    | list one ContentGenre based on id                           |
+| `/contentgenre/:id`                           | PATCH  | edit one ContentGenre data based on id                      |
+| `/contentgenre/:id`                           | DELETE | delete one ContentGenre based on id                         |
+| `/contentgenre`                               | POST   | create new ContentGenre                                     |
 
 #### Fields
 
@@ -363,16 +363,16 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint                                                            | Method | Description                                                                        |
-| ------------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------- |
-| /useraccountsubscriptions                                           | GET    | list all UserAccountSubscriptions                                                  |
-| /useraccountsubscriptions?user_account_id:=:id                      | GET    | list all UserAccountSubscriptions of user_account_id :id                           |
-| /useraccountsubscriptions?subscription_id:=:id                      | GET    | list all UserAccountSubscriptions of subscription_id :id                           |
-| /useraccountsubscriptions?user_account_id=:id1&subscription_id=:id2 | GET    | list all UserAccountSubscriptions of user_account_id :id1 and subscription_id :id2 |
-| /useraccountsubscriptions/:id                                       | GET    | list one UserAccountSubscription based on id                                       |
-| /useraccountsubscriptions/:id                                       | PATCH  | edit one UserAccountSubscription data based on id                                  |
-| /useraccountsubscriptions/:id                                       | DELETE | delete one UserAccountSubscription based on id                                     |
-| /useraccountsubscriptions                                           | POST   | create new UserAccountSubscription                                                 |
+| Endpoint                                                              | Method | Description                                                                        |
+| --------------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------- |
+| `/useraccountsubscriptions`                                           | GET    | list all UserAccountSubscriptions                                                  |
+| `/useraccountsubscriptions?user_account_id:=:id`                      | GET    | list all UserAccountSubscriptions of user_account_id :id                           |
+| `/useraccountsubscriptions?subscription_id:=:id`                      | GET    | list all UserAccountSubscriptions of subscription_id :id                           |
+| `/useraccountsubscriptions?user_account_id=:id1&subscription_id=:id2` | GET    | list all UserAccountSubscriptions of user_account_id :id1 and subscription_id :id2 |
+| `/useraccountsubscriptions/:id`                                       | GET    | list one UserAccountSubscription based on id                                       |
+| `/useraccountsubscriptions/:id`                                       | PATCH  | edit one UserAccountSubscription data based on id                                  |
+| `/useraccountsubscriptions/:id`                                       | DELETE | delete one UserAccountSubscription based on id                                     |
+| `/useraccountsubscriptions`                                           | POST   | create new UserAccountSubscription                                                 |
 
 #### Fields
 
@@ -387,16 +387,16 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint                                    | Method | Description                                                 |
-| ------------------------------------------- | ------ | ----------------------------------------------------------- |
-| /watchhistories                               | GET    | list all WatchHistories                                      |
-| /watchhistories?content_id:=:id               | GET    | list all WatchHistories of content_id :id                    |
-| /watchhistories?user_account_id:=:id                 | GET    | list all WatchHistories of user_account_id :id                      |
-| /watchhistories?content_id=:id1&user_account_id=:id2 | GET    | list all WatchHistories of content_id :id1 and user_account_id :id2 |
-| /watchhistories/:id                           | GET    | list one WatchHistory based on id                           |
-| /watchhistories/:id                           | PATCH  | edit one WatchHistory data based on id                      |
-| /watchhistories/:id                           | DELETE | delete one WatchHistory based on id                         |
-| /watchhistories                               | POST   | create new WatchHistory                                     |
+| Endpoint                                               | Method | Description                                                         |
+| ------------------------------------------------------ | ------ | ------------------------------------------------------------------- |
+| `/watchhistories`                                      | GET    | list all WatchHistories                                             |
+| `/watchhistories?content_id:=:id`                      | GET    | list all WatchHistories of content_id :id                           |
+| `/watchhistories?user_account_id:=:id`                 | GET    | list all WatchHistories of user_account_id :id                      |
+| `/watchhistories?content_id=:id1&user_account_id=:id2` | GET    | list all WatchHistories of content_id :id1 and user_account_id :id2 |
+| `/watchhistories/:id`                                  | GET    | list one WatchHistory based on id                                   |
+| `/watchhistories/:id`                                  | PATCH  | edit one WatchHistory data based on id                              |
+| `/watchhistories/:id`                                  | DELETE | delete one WatchHistory based on id                                 |
+| `/watchhistories`                                      | POST   | create new WatchHistory                                             |
 
 #### Fields
 
@@ -410,16 +410,16 @@ DIALECT='mysql'
 
 #### Endpoints
 
-| Endpoint                                                            | Method | Description                                                                        |
-| ------------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------- |
-| /watchlists                                           | GET    | list all WatchLists                                                  |
-| /watchlists?content_id:=:id                      | GET    | list all WatchLists of content_id :id                           |
-| /watchlists?user_account_id:=:id                      | GET    | list all WatchLists of user_account_id :id                           |
-| /watchlists?content_id=:id1&user_account_id=:id2 | GET    | list all WatchLists of content_id :id1 and user_account_id :id2 |
-| /watchlists/:id                                       | GET    | list one WatchList based on id                                       |
-| /watchlists/:id                                       | PATCH  | edit one WatchList data based on id                                  |
-| /watchlists/:id                                       | DELETE | delete one WatchList based on id                                     |
-| /watchlists                                           | POST   | create new WatchList                                                 |
+| Endpoint                                           | Method | Description                                                     |
+| -------------------------------------------------- | ------ | --------------------------------------------------------------- |
+| `/watchlists`                                      | GET    | list all WatchLists                                             |
+| `/watchlists?content_id:=:id`                      | GET    | list all WatchLists of content_id :id                           |
+| `/watchlists?user_account_id:=:id`                 | GET    | list all WatchLists of user_account_id :id                      |
+| `/watchlists?content_id=:id1&user_account_id=:id2` | GET    | list all WatchLists of content_id :id1 and user_account_id :id2 |
+| `/watchlists/:id`                                  | GET    | list one WatchList based on id                                  |
+| `/watchlists/:id`                                  | PATCH  | edit one WatchList data based on id                             |
+| `/watchlists/:id`                                  | DELETE | delete one WatchList based on id                                |
+| `/watchlists`                                      | POST   | create new WatchList                                            |
 
 #### Fields
 
