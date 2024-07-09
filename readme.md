@@ -5,7 +5,7 @@
 2. run `npm i`
 3. create .env file matching your configuration.
 
-Sample: 
+Sample `.env` file: 
 ```
 NODE_ENV='development'
 DB_USERNAME='root'
@@ -227,7 +227,191 @@ DIALECT='mysql'
 
 #### Fields
 
-| Name           | Data Type    | Description |
-| -------------- | ------------ | ----------- |
-| `content_id`   | varchar(255) | required    |
-| `rating_value` | varchar(255) | required    |
+| Name           | Data Type                        | Description      |
+| -------------- | -------------------------------- | ---------------- |
+| `content_id`   | integer (foreign key to Content) | required         |
+| `rating_value` | integer                          | required, 1 to 5 |
+
+### Season
+
+#### Endpoints
+
+| Endpoint      | Method | Description                       |
+| ------------- | ------ | --------------------------------- |
+| /seasons     | GET    | list all Seasons                 |
+| /seasons/:id | GET    | list one Season based on id      |
+| /seasons/:id | PATCH  | edit one Season data based on id |
+| /seasons/:id | DELETE | delete one Season based on id    |
+| /seasons     | POST   | create new Season                |
+
+#### Fields
+
+| Name                 | Data Type                        | Description |
+| -------------------- | -------------------------------- | ----------- |
+| `content_id`         | integer (foreign key to Content) | required    |
+| `season_number`      | integer                          | required    |
+| `release_date`       | date only                        | required    |
+| `season_description` | text                             | -           |
+
+### Subscription
+
+#### Endpoints
+
+| Endpoint      | Method | Description                       |
+| ------------- | ------ | --------------------------------- |
+| /subscriptions     | GET    | list all Subscriptions                 |
+| /subscriptions/:id | GET    | list one Subscription based on id      |
+| /subscriptions/:id | PATCH  | edit one Subscription data based on id |
+| /subscriptions/:id | DELETE | delete one Subscription based on id    |
+| /subscriptions     | POST   | create new Subscription                |
+
+#### Fields
+
+| Name                 | Data Type       | Description |
+| -------------------- | --------------- | ----------- |
+| `plan_name`          | varchar(255)    | required    |
+| `price_month`        | decimal (10, 2) | required    |
+| `number_of_accounts` | integer         | required    |
+
+
+### SubscriptionFeature
+
+#### Endpoints
+
+| Endpoint      | Method | Description                       |
+| ------------- | ------ | --------------------------------- |
+| /subscriptionfeatures     | GET    | list all SubscriptionFeatures                 |
+| /subscriptionfeatures/:id | GET    | list one SubscriptionFeature based on id      |
+| /subscriptionfeatures/:id | PATCH  | edit one SubscriptionFeature data based on id |
+| /subscriptionfeatures/:id | DELETE | delete one SubscriptionFeature based on id    |
+| /subscriptionfeatures     | POST   | create new SubscriptionFeature                |
+
+#### Fields
+
+| Name                  | Data Type                             | Description |
+| --------------------- | ------------------------------------- | ----------- |
+| `subscription_id`     | integer (foreign key to Subscription) | required    |
+| `feature_description` | varchar(255)                          | required    |
+
+### ContentActor 
+
+#### Endpoints
+
+| Endpoint                                    | Method | Description                                                 |
+| ------------------------------------------- | ------ | ----------------------------------------------------------- |
+| /contentactor                               | GET    | list all ContentActors                                      |
+| /contentactor?content_id:=:id               | GET    | list all ContentActors of content_id :id                    |
+| /contentactor?actor_id:=:id                 | GET    | list all ContentActors of actor_id :id                      |
+| /contentactor?content_id=:id1&actor_id=:id2 | GET    | list all ContentActors of content_id :id1 and actor_id :id2 |
+| /contentactor/:id                           | GET    | list one ContentActor based on id                           |
+| /contentactor/:id                           | PATCH  | edit one ContentActor data based on id                      |
+| /contentactor/:id                           | DELETE | delete one ContentActor based on id                         |
+| /contentactor                               | POST   | create new ContentActor                                     |
+
+#### Fields
+
+| Name         | Data Type                        | Description |
+| ------------ | -------------------------------- | ----------- |
+| `content_id` | integer (foreign key to Content) | required    |
+| `actor_id`   | integer (foreign key to Actor)   | required    |
+
+### ContentDirector 
+
+#### Endpoints
+
+| Endpoint      | Method | Description                       |
+| ------------- | ------ | --------------------------------- |
+| /contentdirector     | GET    | list all ContentDirectors                 |
+| /contentdirector/:id | GET    | list one ContentDirector based on id      |
+| /contentdirector/:id | PATCH  | edit one ContentDirector data based on id |
+| /contentdirector/:id | DELETE | delete one ContentDirector based on id    |
+| /contentdirector     | POST   | create new ContentDirector                |
+
+#### Fields
+
+| Name          | Data Type                         | Description |
+| ------------- | --------------------------------- | ----------- |
+| `content_id`  | integer (foreign key to Content)  | required    |
+| `director_id` | integer (foreign key to Director) | required    |
+
+### ContentGenre 
+
+#### Endpoints
+
+| Endpoint          | Method | Description                            |
+| ----------------- | ------ | -------------------------------------- |
+| /contentgenre     | GET    | list all ContentGenres                 |
+| /contentgenre/:id | GET    | list one ContentGenre based on id      |
+| /contentgenre/:id | PATCH  | edit one ContentGenre data based on id |
+| /contentgenre/:id | DELETE | delete one ContentGenre based on id    |
+| /contentgenre     | POST   | create new ContentGenre                |
+
+#### Fields
+
+| Name         | Data Type                        | Description |
+| ------------ | -------------------------------- | ----------- |
+| `content_id` | integer (foreign key to Content) | required    |
+| `genre_id`   | integer (foreign key to Genre)   | required    |
+
+### UserAccountSubscription
+
+#### Endpoints
+
+| Endpoint      | Method | Description                       |
+| ------------- | ------ | --------------------------------- |
+| /useraccountsubscription     | GET    | list all UserAccountSubscriptions                 |
+| /useraccountsubscription/:id | GET    | list one UserAccountSubscription based on id      |
+| /useraccountsubscription/:id | PATCH  | edit one UserAccountSubscription data based on id |
+| /useraccountsubscription/:id | DELETE | delete one UserAccountSubscription based on id    |
+| /useraccountsubscription     | POST   | create new UserAccountSubscription                |
+
+#### Fields
+
+| Name              | Data Type                             | Description |
+| ----------------- | ------------------------------------- | ----------- |
+| `user_account_id` | integer (foreign key to UserAccount)  | required    |
+| `subscription_id` | integer (foreign key to Subscription) | required    |
+| `start_date`      | date                                  | required    |
+| `end_date`        | date                                  | required    |
+
+### WatchHistory
+
+#### Endpoints
+
+| Endpoint            | Method | Description                            |
+| ------------------- | ------ | -------------------------------------- |
+| /watchhistories     | GET    | list all WatchHistories                |
+| /watchhistories/:id | GET    | list one WatchHistory based on id      |
+| /watchhistories/:id | PATCH  | edit one WatchHistory data based on id |
+| /watchhistories/:id | DELETE | delete one WatchHistory based on id    |
+| /watchhistories     | POST   | create new WatchHistory                |
+
+#### Fields
+
+| Name              | Data Type                            | Description      |
+| ----------------- | ------------------------------------ | ---------------- |
+| `content_id`      | integer (foreign key to Content)     | required         |
+| `user_account_id` | integer (foreign key to UserAccount) | required         |
+| `progress`        | decimal (3, 2)                       | required, 0 to 1 |
+
+### WatchList
+
+#### Endpoints
+
+| Endpoint      | Method | Description                       |
+| ------------- | ------ | --------------------------------- |
+| /watchlists     | GET    | list all WatchLists                 |
+| /watchlists/:id | GET    | list one WatchList based on id      |
+| /watchlists/:id | PATCH  | edit one WatchList data based on id |
+| /watchlists/:id | DELETE | delete one WatchList based on id    |
+| /watchlists     | POST   | create new WatchList                |
+
+#### Fields
+
+| Name              | Data Type                            | Description |
+| ----------------- | ------------------------------------ | ----------- |
+| `content_id`      | integer (foreign key to Content)     | required    |
+| `user_account_id` | integer (foreign key to UserAccount) | required    |
+| `date_added`      | date                                 | required    |
+
+
