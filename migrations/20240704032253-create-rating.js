@@ -22,6 +22,10 @@ module.exports = {
       rating_value: {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
+        validate: {
+          min: 1,
+          max: 5,
+        },
       },
       rating_timestamp: {
         type: Sequelize.DataTypes.DATE,
