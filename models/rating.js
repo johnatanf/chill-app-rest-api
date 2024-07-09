@@ -34,9 +34,14 @@ module.exports = (sequelize, DataTypes) => {
       rating_value: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        validate: {
+          min: 1,
+          max: 5,
+        },
       },
       rating_timestamp: {
         type: DataTypes.DATE,
+        defaultValue: new Date(),
         allowNull: false,
       },
     },

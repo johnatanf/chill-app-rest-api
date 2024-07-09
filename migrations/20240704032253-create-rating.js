@@ -25,6 +25,7 @@ module.exports = {
       },
       rating_timestamp: {
         type: Sequelize.DataTypes.DATE,
+        defaultValue: new Date(),
         allowNull: false,
       },
       createdAt: {
