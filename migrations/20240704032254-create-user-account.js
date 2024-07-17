@@ -9,6 +9,14 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      first_name: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false,
+      },
+      last_name: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
+      },
       username: {
         type: Sequelize.DataTypes.STRING,
         allowNull: false,
@@ -29,6 +37,16 @@ module.exports = {
       },
       password_hash: {
         type: Sequelize.DataTypes.STRING,
+        allowNull: false,
+      },
+      verification_token: {
+        type: Sequelize.DataTypes.CHAR(36),
+        allowNull: false,
+        unique: true,
+      },
+      verified: {
+        type: Sequelize.DataTypes.BOOLEAN,
+        defaultValue: false,
         allowNull: false,
       },
       createdAt: {
