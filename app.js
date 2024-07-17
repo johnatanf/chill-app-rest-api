@@ -19,6 +19,7 @@ const contentDirectorRoutes = require("./routes/contentdirector.js");
 const contentGenreRoutes = require("./routes/contentgenre.js");
 const contentActorRoutes = require("./routes/contentactor.js");
 const userAccountSubscriptionRoutes = require("./routes/useraccountsubscription.js");
+const registerRoutes = require('./routes/register.js')
 
 const app = express();
 const PORT = 5000;
@@ -55,6 +56,7 @@ app.use("/contentdirector", contentDirectorRoutes);
 app.use("/contentgenre", contentGenreRoutes);
 app.use("/contentactor", contentActorRoutes);
 app.use("/useraccountsubscription", userAccountSubscriptionRoutes);
+app.use("/register", registerRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
 app.all("*", (req, res) => res.send("This route does not exist."));
 
