@@ -2,15 +2,25 @@ const UserAccount = require("../models").UserAccount;
 
 const createUserAccount = async (req, res, next) => {
   try {
-    const { username, email, date_of_birth, avatar_image_url, password_hash } =
-      req.body;
-
-    const newUserAccount = await UserAccount.create({
+    const {
+      first_name,
+      last_name,
       username,
       email,
       date_of_birth,
       avatar_image_url,
-      password_hash,
+      password,
+    } = req.body;
+
+    const newUserAccount = await UserAccount.create({
+      first_name,
+      last_name,
+      username,
+      email,
+      date_of_birth,
+      avatar_image_url,
+      password_hash: password,
+      verification_token: "testtokentemporary2"
     });
 
     res.send(newUserAccount);
