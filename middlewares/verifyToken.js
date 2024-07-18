@@ -6,12 +6,11 @@ const verifyToken = (req, res, next) => {
   const token = authHeader && authHeader.split(" ")[1]; // get token string after 'Bearer'
   const secretKey = process.env.JWT_SECRET;
 
-  if (token === null) {
+  if (!token) {
     return res.status(401).send();
   }
 
   jwt.verify(token, secretKey, (err, decoded) => {
-    console.log(err);
 
     if (err) {
       return res.status(403).json({ error: "Not authorized" });

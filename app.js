@@ -21,6 +21,7 @@ const contentActorRoutes = require("./routes/contentactor.js");
 const userAccountSubscriptionRoutes = require("./routes/useraccountsubscription.js");
 const registerRoutes = require("./routes/register.js");
 const loginRoutes = require("./routes/login.js");
+const verifyToken = require('./middlewares/verifyToken.js')
 
 const app = express();
 const PORT = 5000;
@@ -51,7 +52,7 @@ app.use("/payments", paymentsRoutes);
 app.use("/paymentmethods", paymentMethodsRoutes);
 app.use("/subscriptions", subscriptionsRoutes);
 app.use("/subscriptionfeatures", subscriptionFeaturesRoutes);
-app.use("/watchlists", watchListRoutes);
+app.use("/watchlists", verifyToken, watchListRoutes);
 app.use("/watchhistories", watchHistoriesRoutes);
 app.use("/contentdirector", contentDirectorRoutes);
 app.use("/contentgenre", contentGenreRoutes);
