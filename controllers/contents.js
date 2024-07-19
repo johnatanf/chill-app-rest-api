@@ -49,7 +49,7 @@ const getContents = async (req, res, next) => {
     ) {
       whereQuery = {
         ...whereQuery,
-        chill_original: chill_original === "true",
+        chill_original: chill_original.toLowerCase() === "true",
       };
     }
 
@@ -59,7 +59,7 @@ const getContents = async (req, res, next) => {
     ) {
       whereQuery = {
         ...whereQuery,
-        premium: premium === "true",
+        premium: premium.toLowerCase() === "true",
       };
     }
 
