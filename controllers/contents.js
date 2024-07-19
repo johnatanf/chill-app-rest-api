@@ -4,8 +4,9 @@ const ParentalRating = require("../models").ParentalRating;
 
 const getContents = async (req, res, next) => {
   try {
-    const { search } = req.query;
+    const { search, sortBy } = req.query;
     let whereQuery = {};
+    let sortQuery = [];
     let contents;
 
     if (search) {
@@ -22,7 +23,30 @@ const getContents = async (req, res, next) => {
       };
     }
 
-    contents = await Content.findAll({ include: ParentalRating, where: whereQuery });
+    if (sortBy) {
+      switch (sortBy) {
+        case "duration_minutes_asc":
+          sortQuery = [...sortQuery, ["duration_minutes", "ASC"]];
+          break;
+        case "duration_minutes_desc":
+          sortQuery = [...sortQuery, ["duration_minutes", "DESC"]];
+          break;
+        case "release_date_asc":
+          sortQuery = [...sortQuery, ["release_date", "ASC"]];
+          break;
+        case "release_date_desc":
+          sortQuery = [...sortQuery, ["release_date", "DESC"]];
+          break;
+        default:
+          break;
+      }
+    }
+
+    contents = await Content.findAll({
+      include: ParentalRating,
+      where: whereQuery,
+      order: sortQuery,
+    });
     res.send(contents);
   } catch (err) {
     next(err);
