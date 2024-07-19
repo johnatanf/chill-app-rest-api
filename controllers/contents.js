@@ -4,7 +4,15 @@ const ParentalRating = require("../models").ParentalRating;
 
 const getContents = async (req, res, next) => {
   try {
-    const { search, sortBy } = req.query;
+    const {
+      search,
+      sortBy,
+      content_type,
+      chill_original,
+      premium,
+      duration_more_than,
+      duration_less_than,
+    } = req.query;
     let whereQuery = {};
     let sortQuery = [];
     let contents;
@@ -19,6 +27,69 @@ const getContents = async (req, res, next) => {
           title: {
             [Op.like]: `%${search}%`,
           },
+        },
+      };
+    }
+
+    if (
+      content_type &&
+      (content_type.toLowerCase() === "movie" ||
+        content_type.toLowerCase() === "series")
+    ) {
+      whereQuery = {
+        ...whereQuery,
+        content_type,
+      };
+    }
+
+    if (
+      chill_original &&
+      (chill_original.toLowerCase() === "true" ||
+        chill_original.toLowerCase() === "false")
+    ) {
+      whereQuery = {
+        ...whereQuery,
+        chill_original: chill_original === "true",
+      };
+    }
+
+    if (
+      premium &&
+      (premium.toLowerCase() === "true" || premium.toLowerCase() === "false")
+    ) {
+      whereQuery = {
+        ...whereQuery,
+        premium: premium === "true",
+      };
+    }
+
+    if (
+      duration_more_than &&
+      duration_less_than &&
+      Number(duration_more_than) &&
+      Number(duration_less_than)
+    ) {
+      whereQuery = {
+        ...whereQuery,
+        duration_minutes: {
+          [Op.and]: {
+            [Op.gt]: Number(duration_more_than),
+            [Op.lt]: Number(duration_less_than),
+          },
+        },
+      };
+    } else if (duration_more_than && Number(duration_more_than)) {
+      whereQuery = {
+        ...whereQuery,
+        duration_minutes: {
+          [Op.gt]: Number(duration_more_than),
+        },
+      };
+    } else if (duration_less_than && Number(duration_less_than)) {
+      whereQuery = {
+        ...whereQuery,
+        duration_minutes: {
+          [Op.lt]: Number(duration_less_than),
         },
       };
     }
