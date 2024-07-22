@@ -14,6 +14,15 @@ class EmailService {
           },
         });
         break;
+      case "gmail":
+        this.transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: process.env.GMAIL_FROM_USER,
+            pass: process.env.GMAIL_PASSWORD,
+          },
+        });
+        break;
       default:
         throw new Error("Unsupported email service");
     }
