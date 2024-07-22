@@ -21,6 +21,7 @@ const contentActorRoutes = require("./routes/contentactor.js");
 const userAccountSubscriptionRoutes = require("./routes/useraccountsubscription.js");
 const registerRoutes = require("./routes/register.js");
 const loginRoutes = require("./routes/login.js");
+const verifyEmailRoutes = require("./routes/verifyemail.js");
 const verifyToken = require('./middlewares/verifyToken.js')
 
 const app = express();
@@ -60,6 +61,7 @@ app.use("/contentactor", contentActorRoutes);
 app.use("/useraccountsubscription", userAccountSubscriptionRoutes);
 app.use("/register", registerRoutes);
 app.use("/login", loginRoutes);
+app.use("/verify-email", verifyEmailRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
 app.all("*", (req, res) => res.send("This route does not exist."));
 
