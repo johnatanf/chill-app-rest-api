@@ -3,9 +3,9 @@ const fs = require("fs");
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadPath = path.join(__dirname, `../upload/${req.user.id}`)
+    const uploadPath = path.join(__dirname, "../upload/", `${req.user.id}`);
     if (!fs.existsSync(uploadPath)) {
-      fs.mkdirSync(uploadPath)
+      fs.mkdirSync(uploadPath, { recursive: true }); // recursive: create necessary parent folder if not exist
     }
     cb(null, uploadPath);
   },

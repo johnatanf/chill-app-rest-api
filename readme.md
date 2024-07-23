@@ -66,7 +66,7 @@ Send `get` request to `/verify-email?verification_token=[token]`
 * If verification_token already verified and token is correct: Email Already Verified
 * If verification_token not yet verified and token is correct: Email Verified Successfully
 
-Note: if you already register 
+Note: if you already registered your email but you haven't verified, and you try to register again, you will be sent a new token.
 
 ## Login
 
@@ -156,3 +156,46 @@ Sample: `GET /contents?search=raid`
 
 You can also combine queries together
 `GET /contents?search=raid&sortBy=duration_minutes_desc`
+
+
+## Sending verification email: nodemailer
+
+There are two options:
+1. ethereal (fake email)
+2. gmail
+
+### ethereal (fake email)
+
+Please define the following environmental variables in the .env file
+```
+EMAIL_SERVICE='ethereal'
+ETHEREAL_FROM_USER='[email]'
+ETHEREAL_PASSWORD='[password]'
+```
+
+You can create a randomly-generated user and password here: https://ethereal.email/create
+
+### gmail
+
+Please define the following environmental variables in the .env file
+```
+EMAIL_SERVICE='gmail'
+GMAIL_FROM_USER='[email]'
+GMAIL_PASSWORD='[password]'
+```
+
+You can refer to this tutorial on how to set up your gmail account: https://mailtrap.io/blog/nodemailer-gmail/
+
+
+## Upload pictures
+
+### Method 1: postman
+
+
+### Method 2: upload webpage
+1. make sure you are logged in first
+2. open `/upload` webpage
+3. click 'Choose File'
+4. select picture to upload
+5. click 'Upload File'
+6. file is saved in `/upload/:user_id` folder
