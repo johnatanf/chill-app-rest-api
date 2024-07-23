@@ -109,7 +109,8 @@ In this API, the protected routes are:
 | `/watchlists`     | PATCH                              |
 | `/upload`         | GET (note: returns log in webpage) |
 | `/upload`         | POST                               |
-When accessing these routes, verifyToken middleware will run and check if there is a valid token in
+
+When accessing these routes, verifyToken middleware will run and check if there is a valid token in:
 1. a cookie, or
 2. 'Autorization' field in request 'Headers' i.e. `Bearer [json web token]
 
