@@ -34,13 +34,20 @@ GMAIL_PASSWORD=''
 
 #### Endpoints
 
-| Endpoint        | Method | Description                       |
-| --------------- | ------ | --------------------------------- |
-| `/contents`     | GET    | list all Contents                 |
-| `/contents/:id` | GET    | list one Content based on id      |
-| `/contents/:id` | PATCH  | edit one Content data based on id |
-| `/contents/:id` | DELETE | delete one Content based on id    |
-| `/contents`     | POST   | create new Content                |
+| Endpoint                                  | Method | Description                         | Authentication required |
+| ----------------------------------------- | ------ | ----------------------------------- | ----------------------- |
+| `/contents`                               | GET    | list all Contents                   | yes                     |
+| `/contents/:id`                           | GET    | list one Content based on id        | yes                     |
+| `/watchlists`                             | GET    | list all WatchLists                 | yes                     |
+| `/watchlists/:id`                         | GET    | list one WatchList based on id      | yes                     |
+| `/watchlists/:id`                         | PATCH  | edit one WatchList data based on id | yes                     |
+| `/watchlists/:id`                         | DELETE | delete one WatchList based on id    | yes                     |
+| `/watchlists`                             | POST   | create new WatchList                | yes                     |
+| `/register`                               | POST   | create new user account             | no                      |
+| `/login`                                  | POST   | login with email and password       | no                      |
+| `/verify-email?verifaction_token=[token]` | GET    | verify email                        | no                      |
+| `/upload`                                 | POST   | upload image                        | yes                     |
+
 
 ## Register new user
 1. Send a `post` request to `/register` with the below fields in the body
@@ -104,7 +111,7 @@ In this API, the protected routes are:
 | `/upload`         | POST                               |
 When accessing these routes, verifyToken middleware will run and check if there is a valid token in
 1. a cookie, or
-2. 'Autorization' field in request 'Headers' i.e. Bearer `[json web token]`
+2. 'Autorization' field in request 'Headers' i.e. `Bearer [json web token]
 
 If token is not valid (because expired / incorrect), user will not be able to access these routes. 
 
@@ -175,6 +182,8 @@ ETHEREAL_PASSWORD='[password]'
 
 You can create a randomly-generated user and password here: https://ethereal.email/create
 
+Note: when you `post /register`, in the response there is a 'url' property which you can open to view the email in your browser
+
 ### gmail
 
 Please define the following environmental variables in the .env file
@@ -190,7 +199,9 @@ You can refer to this tutorial on how to set up your gmail account: https://mail
 ## Upload pictures
 
 ### Method 1: postman
-
+1. click 'Body' > 'form-data'
+2. set key to 'file' of type 'File', set value by browsing to image file
+3. send `post` request to `/upload`
 
 ### Method 2: upload webpage
 1. make sure you are logged in first
