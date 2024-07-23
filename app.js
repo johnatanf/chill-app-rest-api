@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const bodyParser = require("body-parser");
 const contentsRoutes = require("./routes/contents.js");
@@ -41,9 +42,11 @@ const errorHandler = (err, req, res, next) => {
   }
 };
 
+app.use(cookieParser());
 app.use(bodyParser.json());
-
 app.use(express.static(publicPath));
+app.use(express.urlencoded({ extended: true }));
+
 app.use("/contents", contentsRoutes);
 app.use("/parentalratings", parentalRatingsRoutes);
 app.use("/actors", actorsRoutes);

@@ -27,8 +27,14 @@ const loginUserAccount = async (req, res, next) => {
       email: userAccount.email,
     };
 
-    console.log(payload)
-    token = jwt.sign(payload, secretKey, { expiresIn: '1h' })
+    console.log(payload);
+    token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
+
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      maxAge: 3600000,
+      secure: process.env.NODE_ENV === "production",
+    });
 
     return res.status(200).json({ token });
   } catch (err) {
