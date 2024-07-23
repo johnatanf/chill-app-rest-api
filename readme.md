@@ -203,6 +203,7 @@ You can refer to this tutorial on how to set up your gmail account: https://mail
 1. click 'Body' > 'form-data'
 2. set key to 'file' of type 'File', set value by browsing to image file
 3. send `post` request to `/upload`
+4. file is saved in `/upload/:user_id` folder
 
 ### Method 2: upload webpage
 1. make sure you are logged in first
