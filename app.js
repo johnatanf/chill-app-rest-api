@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const contentsRoutes = require("./routes/contents.js");
 const parentalRatingsRoutes = require("./routes/parentalratings.js");
@@ -21,11 +22,13 @@ const contentActorRoutes = require("./routes/contentactor.js");
 const userAccountSubscriptionRoutes = require("./routes/useraccountsubscription.js");
 const registerRoutes = require("./routes/register.js");
 const loginRoutes = require("./routes/login.js");
+const uploadRoutes = require("./routes/upload.js");
 const verifyEmailRoutes = require("./routes/verifyemail.js");
-const verifyToken = require('./middlewares/verifyToken.js')
+const verifyToken = require("./middlewares/verifyToken.js");
 
 const app = express();
 const PORT = 5000;
+const publicPath = path.join(__dirname, "public");
 
 const errorHandler = (err, req, res, next) => {
   console.error(err.stack);
@@ -40,6 +43,7 @@ const errorHandler = (err, req, res, next) => {
 
 app.use(bodyParser.json());
 
+app.use(express.static(publicPath));
 app.use("/contents", contentsRoutes);
 app.use("/parentalratings", parentalRatingsRoutes);
 app.use("/actors", actorsRoutes);
@@ -61,6 +65,7 @@ app.use("/contentactor", contentActorRoutes);
 app.use("/useraccountsubscription", userAccountSubscriptionRoutes);
 app.use("/register", registerRoutes);
 app.use("/login", loginRoutes);
+app.use("/upload", verifyToken, uploadRoutes);
 app.use("/verify-email", verifyEmailRoutes);
 app.get("/", (req, res) => res.send("Chill Rest API"));
 app.all("*", (req, res) => res.send("This route does not exist."));
