@@ -38,8 +38,6 @@ class EmailService {
 
     try {
       let info = await this.transporter.sendMail(mailOptions);
-      console.log("Email sent: " + info.response);
-      console.log("Preview URL: " + nodemailer.getTestMessageUrl(info));
       if (this.transporter.options.host === "smtp.ethereal.email") {
         info.url = nodemailer.getTestMessageUrl(info);
       }
